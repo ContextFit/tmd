@@ -1,0 +1,21 @@
+---
+type: record
+schema:
+  name: text
+  email: text
+  phone: text?
+  company: ref(companies)
+  role: text
+  notes: text?
+---
+
+# John Smith
+
+name: John Smith
+email: john.smith@acme.example.com
+phone: 555-0101
+company: [[companies/acme]]
+role: VP of Operations
+
+## Notes
+Prefers email over phone. Best time to reach: mornings.

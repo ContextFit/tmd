@@ -1,0 +1,22 @@
+---
+type: record
+schema:
+  name: text
+  industry: text
+  website: text?
+  primary_contact: ref(contacts)
+  billing_email: text
+  payment_terms: text
+---
+
+# Widget Inc
+
+name: Widget Incorporated
+industry: Technology
+website: https://widget.example.com
+primary_contact: [[contacts/jane-doe]]
+billing_email: ap@widget.example.com
+payment_terms: Net 15
+
+## Notes
+Fast-growing startup. Usually pays ahead of schedule.

@@ -1,0 +1,30 @@
+---
+type: table
+schema:
+  id: int (pk)
+  name: text
+  company: ref(companies)
+  amount: decimal
+  due_date: date
+  paid: bool
+  notes: text?
+computed:
+  total_revenue: SUM(amount)
+  outstanding: SUM(amount WHERE paid=false)
+  paid_total: SUM(amount WHERE paid=true)
+  avg_invoice: AVG(amount)
+  count_unpaid: COUNT(WHERE paid=false)
+---
+
+# Invoices
+
+invoices[1]: name=Q1 Consulting, company=[[companies/acme]], amount=1500.00, due_date=2026-05-15, paid=false, notes=Net 30 terms
+invoices[2]: name=Widget Order, company=[[companies/widget-inc]], amount=750.50, due_date=2026-04-30, paid=true
+invoices[3]: name=Support Contract, company=[[companies/acme]], amount=2200.00, due_date=2026-06-01, paid=false
+invoices[4]: name=Hardware Purchase, company=[[companies/foo-llc]], amount=3500.00, due_date=2026-04-15, paid=true
+invoices[5]: name=Training Sessions, company=[[companies/widget-inc]], amount=850.00, due_date=2026-05-20, paid=false
+
+## Notes
+- Follow up with [[contacts/john-smith]] about Acme invoices
+- Widget Inc usually pays early
+- See [[policies/net-30]] for standard terms

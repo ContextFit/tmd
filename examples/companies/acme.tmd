@@ -1,0 +1,26 @@
+---
+type: record
+schema:
+  name: text
+  industry: text
+  website: text?
+  primary_contact: ref(contacts)
+  billing_email: text
+  payment_terms: text
+---
+
+# Acme Corp
+
+name: Acme Corporation
+industry: Manufacturing
+website: https://acme.example.com
+primary_contact: [[contacts/john-smith]]
+billing_email: billing@acme.example.com
+payment_terms: Net 30
+
+## Notes
+Key account - handle with priority. Annual contract renewal in September.
+
+## Related
+- [[invoices]] - View all invoices
+- [[projects/acme-q1]] - Current project

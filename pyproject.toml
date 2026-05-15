@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tmd"
+version = "0.1.0"
+description = "Tabular Markdown: Agent-native structured data format"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Christophe Ponsart" }
+]
+keywords = ["markdown", "tabular", "data", "agent", "llm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.scripts]
+tmd = "tmd.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ContextFit/tmd"
+Repository = "https://github.com/ContextFit/tmd"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tmd"]
