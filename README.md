@@ -97,6 +97,13 @@ Available MCP tools:
 
 TMD files do not need separate vaults. They can live inside existing ContextFit vaults for search/retrieval, while TMD CLI/MCP handles row-aware reads and writes.
 
+## Integration Docs
+
+- [UI integration guide](docs/UI_INTEGRATION.md)
+- [JSON contract](docs/JSON_CONTRACT.md)
+- [Edit operations](docs/EDIT_OPERATIONS.md)
+- [JSON schema](schema/tmd.schema.json)
+
 ## Python API
 
 ```python

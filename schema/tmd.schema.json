@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ContextFit/tmd/schema/tmd.schema.json",
+  "title": "TMD JSON Export",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["meta", "data"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["title", "table", "schema"],
+      "properties": {
+        "title": { "type": ["string", "null"] },
+        "table": { "type": ["string", "null"] },
+        "schema": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/fieldSchema" }
+        }
+      }
+    },
+    "data": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/row" }
+    }
+  },
+  "$defs": {
+    "fieldSchema": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "type": { "type": "string" },
+        "nullable": { "type": "boolean" },
+        "pk": { "type": "boolean" },
+        "ref_table": { "type": "string" }
+      }
+    },
+    "reference": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["_ref"],
+      "properties": {
+        "_ref": { "type": "string", "minLength": 1 }
+      }
+    },
+    "rowValue": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "integer" },
+        { "type": "boolean" },
+        { "type": "null" },
+        { "type": "array" },
+        { "$ref": "#/$defs/reference" },
+        { "type": "object" }
+      ]
+    },
+    "row": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/rowValue" },
+      "required": ["_id"],
+      "properties": {
+        "_id": {
+          "type": ["string", "integer", "number"]
+        }
+      }
+    }
+  }
+}

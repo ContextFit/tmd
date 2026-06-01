@@ -291,6 +291,17 @@ tmd export invoices.tmd --format csv
 tmd import data.csv --output invoices.tmd
 ```
 
+## UI Integration
+
+Renderers and UI agents should start from the JSON export and row operation contracts rather than scraping raw TMD text.
+
+See:
+
+- [UI integration guide](docs/UI_INTEGRATION.md)
+- [JSON contract](docs/JSON_CONTRACT.md)
+- [Edit operations](docs/EDIT_OPERATIONS.md)
+- [JSON schema](schema/tmd.schema.json)
+
 ---
 
 ## Example Files
