@@ -188,6 +188,7 @@ def cmd_export(args):
                 "title": doc.title,
                 "table": doc.table_name,
                 "schema": doc.schema.fields,
+                "computed": doc.schema.computed,
             },
             "data": doc.to_dicts(),
         }
